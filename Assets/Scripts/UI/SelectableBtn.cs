@@ -13,6 +13,8 @@ public class SelectableBtn : MonoBehaviour, IPointerClickHandler
     [Header("Transition Settings")]
     public float fadeTime = 0.2f;
     
+    public ButtonTracker buttonTracker;
+    
     [Header("Events")]
     public SelectEvent onSelect;
 
@@ -37,6 +39,7 @@ public class SelectableBtn : MonoBehaviour, IPointerClickHandler
     {
         selectedImage.DOKill();
         selectedImage.DOFade(1f, fadeTime);
+        buttonTracker.RecordButtonPress();
     }
 
     [Button]
